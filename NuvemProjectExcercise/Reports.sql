@@ -28,3 +28,18 @@ GROUP BY
     w.Name
 ORDER BY 
     [Total Revenue] DESC;
+
+-- Report 3
+SELECT 
+    ph.Name AS PharmacistName, 
+    p.Name AS PharmacyName,
+    d.Description AS DrugSold,
+    ps.QuantitySold
+FROM 
+    Pharmacists ph
+JOIN 
+    Pharmacies p ON ph.WorkLocation = p.PharmacyId
+JOIN 
+    PharmacySales ps ON ph.PharmacistId = ps.Pharmacist
+JOIN 
+    Drugs d ON ps.Drug = d.DrugId;
