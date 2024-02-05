@@ -95,3 +95,42 @@ VALUES
   (3, 3, 8, 330, 1.67, 550.1, DATEADD(DAY, -60, @DeliveryDate)),
   (1, 4, 9, 350, 1.57, 549.5, DATEADD(DAY, -63, @DeliveryDate)),
   (2, 5, 10, 370, 1.49, 550.3, DATEADD(DAY, -67, @DeliveryDate));
+
+CREATE TABLE PharmacySales
+(
+    SaleId INT PRIMARY KEY IDENTITY(1,1),
+    Pharmacist INT,
+    Drug INT,
+    Pharmacy INT,
+    SaleDate DATETIME2(7),
+    QuantitySold INT,
+    FOREIGN KEY (Pharmacist) REFERENCES Pharmacists(PharmacistId),
+    FOREIGN KEY (Drug) REFERENCES Drugs(DrugId),
+    FOREIGN KEY (Pharmacy) REFERENCES Pharmacies(PharmacyId)
+);
+
+CREATE TABLE PharmacySales
+(
+    SaleId INT PRIMARY KEY IDENTITY(1,1),
+    Pharmacist INT,
+    Drug INT,
+    Pharmacy INT,
+    SaleDate DATETIME2(7),
+    QuantitySold INT,
+    FOREIGN KEY (Pharmacist) REFERENCES Pharmacists(PharmacistId),
+    FOREIGN KEY (Drug) REFERENCES Drugs(DrugId),
+    FOREIGN KEY (Pharmacy) REFERENCES Pharmacies(PharmacyId)
+);
+
+INSERT INTO PharmacySales (Pharmacist, Drug, Pharmacy, SaleDate, QuantitySold)
+VALUES
+(1, 1, 1, '2023-10-01', 20),
+(2, 2, 1, '2023-10-02', 15),
+(1, 3, 2, '2023-10-03', 25),
+(2, 4, 2, '2023-10-04', 30),
+(1, 5, 3, '2023-10-05', 10),
+(2, 1, 3, '2023-10-06', 5),
+(1, 2, 4, '2023-10-07', 20),
+(2, 3, 4, '2023-10-08', 25),
+(1, 4, 5, '2023-10-09', 15),
+(2, 5, 5, '2023-10-10', 10);
