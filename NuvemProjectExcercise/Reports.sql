@@ -34,7 +34,8 @@ SELECT
     ph.Name AS PharmacistName, 
     p.Name AS PharmacyName,
     d.Description AS DrugSold,
-    ps.QuantitySold
+    ps.QuantitySold,
+	(ps.QuantitySold * ps.UnitPrice) AS TotalSaleAmt
 FROM 
     Pharmacists ph
 JOIN 
@@ -42,4 +43,5 @@ JOIN
 JOIN 
     PharmacySales ps ON ph.PharmacistId = ps.Pharmacist
 JOIN 
-    Drugs d ON ps.Drug = d.DrugId;
+    Drugs d ON ps.Drug = d.DrugId
+ORDER BY (ps.QuantitySold * ps.UnitPrice) DESC;
