@@ -1,0 +1,11 @@
+.pharmacy-container {
+    border-style: solid;
+    border-color: red;
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
